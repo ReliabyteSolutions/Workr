@@ -1,0 +1,48 @@
+
+
+
+@theme-primary:    rgb(074, 055, 149);
+@theme-background: rgb(241, 242, 243);
+
+
+/**
+ * Shell Header
+ */
+@shell-header-bgcolor: @theme-primary;
+
+
+/**
+ * Shell Navigation
+ */
+@shell-nav-altcolor: rgb(255,255,255);
+@shell-nav-bgcolor: rgb(40,40,40);
+@shell-nav-color: rgb(255,255,255);
+
+
+/**
+ * Shell Panel
+ */
+@shell-panel-base: rgb(24,24,24);
+@shell-panel-base-bgcolor: @shell-panel-base;
+@shell-panel-base-color: lighten(@shell-panel-base,65%);
+
+@shell-panel-bgcolor: rgba(
+        red(@shell-panel-base-bgcolor),
+        green(@shell-panel-base-bgcolor),
+        blue(@shell-panel-base-bgcolor),
+        .9
+);
+
+// Notifications Panel
+@shell-panel-notify-bgcolor: rgba(
+        red(darken(@shell-panel-base-bgcolor,5%)),
+        green(darken(@shell-panel-base-bgcolor,5%)),
+        blue(darken(@shell-panel-base-bgcolor,5%)),
+        .7
+);
+@shell-panel-notify-color: @shell-panel-base-color;
+@shell-panel-notify-dismiss-bgcolor: lighten(@shell-panel-base-bgcolor,12%);
+@shell-panel-notify-dismissAll-color: darken(@shell-panel-base-color,25%);
+
+// User Menu Panel
+@shell-panel-userMenu-link-color: darken(@shell-panel-base-color,25%);

@@ -1,0 +1,27 @@
+{
+  "name": "Workr",
+  "version": "0.0.999",
+  "description": "Worker Task Management",
+
+  "authors": [
+    "Jason Banister <banisterj@reliabytesolutions.com>"
+  ],
+  "license": "UNLICENSED",
+
+  "private": true,
+
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "dist"
+  ],
+
+  "dependencies": {
+    "angular": "~1.4.2",
+    "angular-ui-router": "~0.2.15",
+    "adal-angular": "~1.0.4",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.3.0"
+  }
+}

@@ -1,0 +1,306 @@
+
+/*
+***
+*** Global
+***
+*/
+body {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+
+
+/* Positioning */
+#shell-header,
+#shell-navigation,
+#shell-content { position: fixed; }
+
+#shell-header {
+  height: 60px;
+  top: 0;
+  left: 0; right: 0;
+}
+
+#shell-navigation {
+  width: 60px;
+  top: 60px; bottom: 0;
+  left: 0;
+}
+
+#shell-content {
+  top: 60px; bottom: 0;
+  left: 60px; right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/*
+***
+*** Branding
+***
+*/
+#shell-header { background-color: @shell-header-bgcolor;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Shell Navigation
+ */
+#shell-navigation {
+  background-color: @shell-nav-bgcolor;
+}
+#shell-navigation-menu ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+#shell-navigation-menu ul > li {
+  position: relative;
+  display: block;
+  //padding: 15px 10px;
+  height: 60px;
+  border-left: 3px solid transparent;
+}
+#shell-navigation-menu ul > li > a {
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 0; left: 0;
+  padding: 15px 10px;
+  color: @shell-nav-color;
+}
+
+#shell-navigation-menu ul > li > a:hover {
+  color: @shell-nav-color;
+}
+
+
+
+
+
+#shell-navigation-menu ul > li:hover { background-color: lighten(@shell-nav-bgcolor,10%); }
+#shell-navigation-menu ul > li.active { border-left-color: @shell-nav-altcolor; }
+#shell-navigation-menu ul > li.active:after {
+  content: "\25A0";
+  color: @shell-nav-altcolor;
+  position: absolute;
+  right: -9px;
+  transform: rotate(45deg);
+  font-size: 24px;
+  line-height: 54px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#shell-sidebar {
+  background-color: #555;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Branding */
+#shell-header .branding {
+  display: inline-block;
+  padding: 10px;
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#shell-header-menu {
+  display: inline-block;
+  float: right;
+  height: 100%;
+}
+
+#shell-header-menu > .item {
+  display: inline-block;
+  color: #FFF;
+  height: 100%;
+  padding: 0 10px;
+}
+
+#shell-header-menu > .item:hover {
+  background-color: darken(@shell-header-bgcolor,10%);
+}
+
+
+#shell-header-menu > .item i {
+  transform: translateY(50%);
+}
+
+#shell-header-menu > .item img {
+  width: 40px; height: 40px;
+  transform: translateY(25%);
+}
+#shell-header-menu > .item img.user-photo { border-radius: 40px; }
+
+
+
+
+
+
+
+
+/*
+  ============PANEL
+*/
+#shell-panel {
+  position: fixed;
+  top: 60px; bottom: 0;
+  right: 0;
+  width: 300px;
+  background: @shell-panel-bgcolor;
+  border-left: 1px solid darken(@shell-panel-base-bgcolor,3%);
+  //.box-shadow(5px 0px 10px 10px rgba(0,0,0,0.75));
+  transition: .25s ease-in-out;
+  transform: translateX(100%);
+  z-index: 9998;
+}
+  #shell-panel.closed {
+    transform: translateX(100%);
+  }
+  #shell-panel.opened {
+    transform: none;
+  }
+
+  #shell-panel .title {
+    margin-left: 25px;
+    color: lighten(@shell-panel-base-color,10%);
+    text-align: center;
+  }
+
+
+/*
+  ============NOTIFICATION PANEL
+*/
+#shell-panel .notification {
+  background: @shell-panel-notify-bgcolor;
+  color: @shell-panel-notify-color;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+// Description
+#shell-panel .notification .notification-desc {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+// Dismiss
+#shell-panel .notification .notification-dismiss {
+  display: inline-block;
+  vertical-align: bottom;
+  float: right;
+  background: @shell-panel-notify-dismiss-bgcolor;
+  border-radius: 12px;
+  padding: 0 5px;
+}
+#shell-panel .notification .notification-dismiss .close { text-shadow: none;  }
+
+// Dismiss All
+#shell-panel .dismiss-all { text-align: right; }
+#shell-panel .dismiss-all .btn-link { color: @shell-panel-notify-dismissAll-color; }
+#shell-panel .dismiss-all .btn-link:hover,
+#shell-panel .dismiss-all .btn-link:focus {
+  color: darken(@shell-panel-notify-dismissAll-color,10%);
+}
+
+
+/*
+  ============PROFILE PANEL
+*/
+#shell-panel .profile-photo {
+  text-align: center;
+  margin: 25px 0;
+}
+#shell-panel .profile-photo img {
+  width: 150px; height: 150px;
+  border-radius: 150px;
+}
+#shell-panel .profile-link { text-align: center; }
+#shell-panel .profile-link .btn-link { color: @shell-panel-userMenu-link-color; }
+#shell-panel .profile-link .btn-link:hover,
+#shell-panel .profile-link .btn-link:focus {
+  color: darken(@shell-panel-userMenu-link-color,10%);
+}
+
+
+
+
+
+#shell-content {
+  background-color: #fff;
+}
+
+
+
+
+

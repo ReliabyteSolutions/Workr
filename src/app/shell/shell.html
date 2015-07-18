@@ -1,0 +1,8 @@
+<div id="shell-header" ng-include="shell.header"></div>
+<div id="shell-navigation" ng-include="shell.navigation"></div>
+
+<ui-view id="shell-content"></ui-view>
+
+<div id="shell-panel" ng-class="shell.panelStatus">
+    <div ng-include="shell.panel"></div>
+</div>

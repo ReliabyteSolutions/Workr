@@ -1,0 +1,9 @@
+<div ng-controller="ProfilePanelCtrl as profile">
+    <h2 class="title">{{profile.displayName}}</h2>
+    <div>
+        <div class="profile-photo"><img src="{{profile.photo}}"></div>
+        <div class="profile-link"><button type="button" class="btn btn-lg btn-link" ng-click="profile.view()">View Profile</button></div>
+        <div class="profile-link"><button type="button" class="btn btn-lg btn-link" ng-click="profile.changePassword()">Change Password</button></div>
+        <div class="profile-link"><button type="button" class="btn btn-lg btn-link" ng-click="profile.signOut()">Sign Out</button></div>
+    </div>
+</div>

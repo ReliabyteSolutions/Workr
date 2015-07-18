@@ -1,0 +1,13 @@
+<div class="branding" ng-click="shell.login()"><img src="/assets/logo.png"></div>
+
+<div id="shell-header-menu">
+    <div class="item" ng-click="shell.togglePanel('notification')">
+        <i class="fa fa-bell-o fa-2x fa-fw"></i>
+    </div>
+    <div class="item" ng-click="shell.togglePanel('profile')">
+        <img class="user-photo" src="{{shell.userPicture}}">
+    </div>
+    <div class="item" ng-click="shell.togglePanel('help')">
+        <i class="fa fa-life-ring fa-2x fa-fw"></i>
+    </div>
+</div>

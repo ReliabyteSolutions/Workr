@@ -1,0 +1,9 @@
+# IDEs ignore
+.idea/
+
+# Package Managers ignore
+bower_components/
+node_modules/
+
+# dist/ ignore
+dist/

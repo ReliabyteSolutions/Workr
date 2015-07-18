@@ -1,0 +1,21 @@
+{
+  "name": "Workr",
+  "version": "0.0.999",
+  "description": "Worker Task Management",
+  "author": "Jason Banister <banisterj@reliabytesolutions.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "gulp",
+    "start": "DEV_SERVER_PORT=8080 DEV_SERVER_ROOT=./dist dev-server"
+  },
+  "devDependencies": {
+    "dev-server": "^0.0.2",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.3",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}
