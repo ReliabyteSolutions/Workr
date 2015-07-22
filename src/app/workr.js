@@ -1,14 +1,13 @@
 (function() {
     'use strict';
 
-    angular.module('app',[
+    angular.module('workr',[
         'templates',
-        'app.shell',
-
-        'app.home',
-        'app.tasks',
-        'app.projects',
-        'app.timesheet'
+        'shell',
+        'wkr.home',
+        'wkr.tasks',
+        'wkr.projects',
+        'wkr.timesheet'
     ]).run(runBlock);
 
     runBlock.$inject = [

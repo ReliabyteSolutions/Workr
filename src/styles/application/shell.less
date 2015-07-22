@@ -1,306 +1,265 @@
+/**
+ * Shell-UX Main Styles
+ *
+ * @copyright (c) 2015 Reliabyte Solutions
+ * @license Internal-Use
+ */
 
 /*
-***
-*** Global
-***
-*/
-body {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-
-
-
-
-/* Positioning */
-#shell-header,
-#shell-navigation,
-#shell-content { position: fixed; }
-
+ * Shell Positioning
+ */
 #shell-header {
-  height: 60px;
+  position: fixed;
+
+  height: @shell-size;
+
   top: 0;
   left: 0; right: 0;
-}
 
+  background-color: @shell-header-bg;
+
+  &.shell-navigation-opened #shell-header-navigation-toggle {
+    @media (min-width: @screen-md-min) {
+      width: @shell-nav-full-size;
+    }
+  }
+}
 #shell-navigation {
-  width: 60px;
-  top: 60px; bottom: 0;
-  left: 0;
-}
+  position: fixed;
 
+  top: -100%;
+  left: 0; right: 0;
+
+  .transition(@shell-transition);
+
+  &.shell-navigation-opened {
+    top: @shell-size;
+    @media (min-width: @screen-md-min) {
+      width: @shell-nav-full-size;
+    }
+  }
+
+  @media (min-width: @screen-md-min) {
+    width: @shell-size;
+
+    top: @shell-size; bottom: 0;
+    right: auto;
+  }
+}
 #shell-content {
-  top: 60px; bottom: 0;
-  left: 60px; right: 0;
+  position: fixed;
+
+  top: @shell-size; bottom: 0;
+  left: 0; right: 0;
+
   overflow-y: auto;
   overflow-x: hidden;
+
+  .transition(@shell-transition);
+
+  &.shell-navigation-opened {
+    @media (min-width: @screen-md-min) {
+      left: @shell-nav-full-size;
+    }
+  }
+
+  @media (min-width: @screen-md-min) {
+    left: @shell-size;
+  }
 }
 
+
 /*
-***
-*** Branding
-***
-*/
-#shell-header { background-color: @shell-header-bgcolor;}
+ * Shell Header Menu Toggle
+ */
+#shell-header-menu-toggle {
+  height: 100%;
+
+  padding: 0 15px;
+
+  background-color: transparent;
+  border: none;
+
+  .transition(@shell-transition);
+
+  &:hover,
+  &:focus {
+    background-color: darken(@shell-header-bg, 10%);
+  }
+  &:focus { outline: none; }
+}
 
 
+/*
+ * Shell Header Menu
+ */
+#shell-header-menu {
+  display: inline-block;
+  float: right;
+  height: 100%;
+  color: @shell-header-color;
+
+  i { .translate(0, 25%) }
+
+  img.photo {
+    width: 40px; height: 40px;
+    border-radius: 40px;
+  }
+
+  span.name {
+    display: none;
+
+    padding: 6px;
+
+    font-family: @shell-font;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 0.125em;
+
+    vertical-align: middle;
+
+    @media (min-width: @screen-sm-min) {
+      display: inline;
+    }
+    @media (min-width: @screen-md-min) {
+      display: inline;
+    }
+    @media (min-width: @screen-lg-min) {
+      display: inline;
+    }
+  }
+
+  ul
+  {
+    display: none;
+    position: absolute;
+
+    top: 100%;
+
+    float: left;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    box-shadow: 3px 3px 10px black;
+
+    &.header-menu-opened { display: block; }
+
+    li {
+      background-color: @shell-nav-bg;
+
+      padding: 13px 0;
+
+      .transition(@shell-transition);
+
+      a {
+        padding: 15px 30px;
+
+        color: @shell-nav-color;
+
+        font-family: @shell-font;
+        font-size: 16px;
+        letter-spacing: 0.0625em;
+
+        &:hover { text-decoration: none; }
+      }
+      &:hover { background-color: darken(@shell-nav-bg, 10%); }
+    }
+  }
+}
 
 
+/*
+ * Shell Navigation Toggle
+ */
+#shell-header-navigation-toggle {
+  float: left;
 
+  width: @shell-size; height: @shell-size;
 
+  padding: 15px 12px;
 
+  color: @shell-nav-color;
 
+  .transition(@shell-transition);
 
-
-
-
-
-
-
+  &:hover { background-color: darken(@shell-header-bg, 10%); }
+}
 
 
 /*
  * Shell Navigation
  */
 #shell-navigation {
-  background-color: @shell-nav-bgcolor;
-}
-#shell-navigation-menu ul {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-#shell-navigation-menu ul > li {
-  position: relative;
-  display: block;
-  //padding: 15px 10px;
-  height: 60px;
-  border-left: 3px solid transparent;
-}
-#shell-navigation-menu ul > li > a {
-  position: absolute;
-  top: 0; bottom: 0;
-  right: 0; left: 0;
-  padding: 15px 10px;
-  color: @shell-nav-color;
-}
+  background-color: @shell-nav-bg;
 
-#shell-navigation-menu ul > li > a:hover {
-  color: @shell-nav-color;
-}
+  #shell-navigation-menu ul {
+    padding-left: 0;
+    margin-bottom: 0;
 
+    list-style: none;
 
+    li {
+      position: relative;
+      display: block;
 
+      height: @shell-size;
 
+      border-left: 3px solid transparent;
 
-#shell-navigation-menu ul > li:hover { background-color: lighten(@shell-nav-bgcolor,10%); }
-#shell-navigation-menu ul > li.active { border-left-color: @shell-nav-altcolor; }
-#shell-navigation-menu ul > li.active:after {
-  content: "\25A0";
-  color: @shell-nav-altcolor;
-  position: absolute;
-  right: -9px;
-  transform: rotate(45deg);
-  font-size: 24px;
-  line-height: 54px;
-}
+      .transition(@shell-transition);
 
+      a {
+        position: absolute;
 
+        top: 0; bottom: 0;
+        right: 0; left: 0;
 
+        padding: 15px 10px;
 
+        color: @shell-nav-color;
 
+        &:focus { outline: none!important; }
+        &:hover { color: @shell-nav-color; }
+      }
 
+      span.title {
+        position: absolute;
 
+        top: 17px;
+        left: 60px;
 
+        font-family: @shell-font;
+        font-size: 16px;
+        font-weight: lighter;
+        letter-spacing: 0.125em;
+      }
 
+      &:hover { background-color: darken(@shell-nav-bg, 10%); }
+      &.active { border-left-color: @shell-nav-alt; }
 
+      &.active:after {
+        content: "\25B2";
 
+        position: absolute;
+        right: -3px;
 
+        .rotate(-90deg);
 
+        color: @shell-nav-alt;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#shell-sidebar {
-  background-color: #555;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Branding */
-#shell-header .branding {
-  display: inline-block;
-  padding: 10px;
-  float: left;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-#shell-header-menu {
-  display: inline-block;
-  float: right;
-  height: 100%;
-}
-
-#shell-header-menu > .item {
-  display: inline-block;
-  color: #FFF;
-  height: 100%;
-  padding: 0 10px;
-}
-
-#shell-header-menu > .item:hover {
-  background-color: darken(@shell-header-bgcolor,10%);
-}
-
-
-#shell-header-menu > .item i {
-  transform: translateY(50%);
-}
-
-#shell-header-menu > .item img {
-  width: 40px; height: 40px;
-  transform: translateY(25%);
-}
-#shell-header-menu > .item img.user-photo { border-radius: 40px; }
-
-
-
-
-
-
-
-
-/*
-  ============PANEL
-*/
-#shell-panel {
-  position: fixed;
-  top: 60px; bottom: 0;
-  right: 0;
-  width: 300px;
-  background: @shell-panel-bgcolor;
-  border-left: 1px solid darken(@shell-panel-base-bgcolor,3%);
-  //.box-shadow(5px 0px 10px 10px rgba(0,0,0,0.75));
-  transition: .25s ease-in-out;
-  transform: translateX(100%);
-  z-index: 9998;
-}
-  #shell-panel.closed {
-    transform: translateX(100%);
+        font-size: 16px;
+        line-height: 60px;
+      }
+    }
   }
-  #shell-panel.opened {
-    transform: none;
+  &.shell-navigation-closed {
+    ul {
+      li {
+        span.title { display: none; }
+      }
+    }
   }
-
-  #shell-panel .title {
-    margin-left: 25px;
-    color: lighten(@shell-panel-base-color,10%);
-    text-align: center;
-  }
-
-
-/*
-  ============NOTIFICATION PANEL
-*/
-#shell-panel .notification {
-  background: @shell-panel-notify-bgcolor;
-  color: @shell-panel-notify-color;
-  padding: 10px;
-  margin-bottom: 5px;
 }
-// Description
-#shell-panel .notification .notification-desc {
-  display: inline-block;
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: bottom;
-}
-// Dismiss
-#shell-panel .notification .notification-dismiss {
-  display: inline-block;
-  vertical-align: bottom;
-  float: right;
-  background: @shell-panel-notify-dismiss-bgcolor;
-  border-radius: 12px;
-  padding: 0 5px;
-}
-#shell-panel .notification .notification-dismiss .close { text-shadow: none;  }
-
-// Dismiss All
-#shell-panel .dismiss-all { text-align: right; }
-#shell-panel .dismiss-all .btn-link { color: @shell-panel-notify-dismissAll-color; }
-#shell-panel .dismiss-all .btn-link:hover,
-#shell-panel .dismiss-all .btn-link:focus {
-  color: darken(@shell-panel-notify-dismissAll-color,10%);
-}
-
-
-/*
-  ============PROFILE PANEL
-*/
-#shell-panel .profile-photo {
-  text-align: center;
-  margin: 25px 0;
-}
-#shell-panel .profile-photo img {
-  width: 150px; height: 150px;
-  border-radius: 150px;
-}
-#shell-panel .profile-link { text-align: center; }
-#shell-panel .profile-link .btn-link { color: @shell-panel-userMenu-link-color; }
-#shell-panel .profile-link .btn-link:hover,
-#shell-panel .profile-link .btn-link:focus {
-  color: darken(@shell-panel-userMenu-link-color,10%);
-}
-
-
-
-
-
-#shell-content {
-  background-color: #fff;
-}
-
-
-
-
-

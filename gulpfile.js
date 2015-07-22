@@ -11,6 +11,7 @@ var gulp       = require('gulp'),
 /* Build JS */
 gulp.task('build.scripts.application', function() {
     return gulp.src([
+        'src/app/**/workr.js',
         'src/app/**/*.module.js',
         'src/app/**/*.config.js',
         'src/app/**/*.controller.js',
@@ -22,9 +23,7 @@ gulp.task('build.scripts.application', function() {
 gulp.task('build.scripts.vendor', function() {
     return gulp.src([
         'bower_components/angular/angular.js',
-        'bower_components/angular-ui-router/release/angular-ui-router.js',
-        'bower_components/adal-angular/lib/adal.js',
-        'bower_components/adal-angular/lib/adal-angular.js'
+        'bower_components/angular-ui-router/release/angular-ui-router.js'
     ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('dist/scripts'));

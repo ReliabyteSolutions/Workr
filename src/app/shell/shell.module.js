@@ -1,8 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.shell',[
-        'AdalAngular',
+    angular.module('shell',[
         'ui.router'
     ])
 })();

@@ -1,48 +1,29 @@
-
-
-
-@theme-primary:    rgb(074, 055, 149);
-@theme-background: rgb(241, 242, 243);
-
-
 /**
- * Shell Header
+ * Shell-UX Variables
+ *
+ * @copyright (c) 2015 Reliabyte Solutions
+ * @license Internal-Use
  */
-@shell-header-bgcolor: @theme-primary;
 
+/* Shell global */
+@shell-font: "Segoe UI", Helvetica, Arial, sans-serif;
+@shell-size: 60px;
+@shell-transition: .15s ease-in-out;
 
-/**
- * Shell Navigation
- */
-@shell-nav-altcolor: rgb(255,255,255);
-@shell-nav-bgcolor: rgb(40,40,40);
+/* Shell header */
+@shell-header-bg: @theme-primary;
+@shell-header-color: rgb(255,255,255);
+
+/* Shell navigation */
+@shell-nav-full-size: @shell-size*(11/3);
+@shell-nav-bg: rgb(40,40,40);
+@shell-nav-alt: rgb(255,255,255);
 @shell-nav-color: rgb(255,255,255);
 
-
-/**
- * Shell Panel
- */
-@shell-panel-base: rgb(24,24,24);
-@shell-panel-base-bgcolor: @shell-panel-base;
-@shell-panel-base-color: lighten(@shell-panel-base,65%);
-
-@shell-panel-bgcolor: rgba(
-        red(@shell-panel-base-bgcolor),
-        green(@shell-panel-base-bgcolor),
-        blue(@shell-panel-base-bgcolor),
-        .9
-);
-
-// Notifications Panel
-@shell-panel-notify-bgcolor: rgba(
-        red(darken(@shell-panel-base-bgcolor,5%)),
-        green(darken(@shell-panel-base-bgcolor,5%)),
-        blue(darken(@shell-panel-base-bgcolor,5%)),
-        .7
-);
-@shell-panel-notify-color: @shell-panel-base-color;
-@shell-panel-notify-dismiss-bgcolor: lighten(@shell-panel-base-bgcolor,12%);
-@shell-panel-notify-dismissAll-color: darken(@shell-panel-base-color,25%);
-
-// User Menu Panel
-@shell-panel-userMenu-link-color: darken(@shell-panel-base-color,25%);
+/* Media queries breakpoints */
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);

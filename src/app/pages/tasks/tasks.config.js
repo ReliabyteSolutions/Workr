@@ -1,10 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app.tasks')
-        .config(['$stateProvider', 'shellNavigationSvcProvider', function($stateProvider, shellNavigationSvcProvider) {
-
-            shellNavigationSvcProvider.addItem('shell.tasks','tasks');
+    angular.module('wkr.tasks')
+        .config(['$stateProvider', 'navigationSvcProvider', function($stateProvider, navigationSvcProvider) {
+            navigationSvcProvider.addItem({title:'Tasks', sref:'shell.tasks', icon:'tasks'});
             
             $stateProvider.state('shell.tasks', {
                 url: '/tasks',

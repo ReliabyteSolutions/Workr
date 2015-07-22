@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app.tasks',[
-        'templates',
+    angular.module('wkr.tasks',[
         'ui.router',
-        'app.shell'
+        'templates',
+        'shell'
     ]);
 })();

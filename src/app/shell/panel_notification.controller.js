@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.shell')
+    angular.module('shell')
         .controller('NotificationPanelCtrl', NotificationPanel);
 
     function NotificationPanel() {

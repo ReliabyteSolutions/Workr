@@ -1,0 +1,9 @@
+<div id="shell-navigation" ng-class="navigation.status()">
+    <div id="shell-navigation-menu">
+        <ul>
+            <li ui-sref-active="active" ng-repeat="item in navigation.menu">
+                <a href ui-sref="{{item.sref}}"><i class="fa fa-{{item.icon}} fa-2x fa-fw"></i> <span class="title">{{item.title}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

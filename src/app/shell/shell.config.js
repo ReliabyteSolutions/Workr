@@ -1,40 +1,44 @@
 (function () {
     'use strict';
 
-    angular.module('app.shell')
+    angular.module('shell')
         .config(Config);
 
     Config.$inject = [
         '$urlRouterProvider',
         '$locationProvider',
-        '$stateProvider',
-        '$httpProvider',
-        'adalAuthenticationServiceProvider'
+        '$stateProvider'
     ];
 
     function Config(
         $urlRouterProvider,
         $locationProvider,
-        $stateProvider,
-        $httpProvider,
-        adalAuthenticationServiceProvider
+        $stateProvider
     ) {
         $locationProvider.html5Mode(true);
         $locationProvider.hashPrefix('!');
         $urlRouterProvider.otherwise('/home');
 
-        adalAuthenticationServiceProvider.init({
-            tenant: 'peoriaholyfamily.com',
-            clientId: '9b70d71a-c2bc-45e4-8f00-ded27a52aa1f'
-        }, $httpProvider );
-
-        $stateProvider.state({
-            name: 'shell',
+        $stateProvider.state('shell', {
             url: '',
             abstract: true,
-            templateUrl: 'shell/shell.html',
-            controller: 'ShellCtrl',
-            controllerAs: 'shell'
+            views: {
+                'header@': {
+                    templateUrl: 'shell/partials/header.html',
+                    controller: 'HeaderCtrl',
+                    controllerAs: 'header'
+                },
+                'navigation@': {
+                    templateUrl: 'shell/partials/navigation.html',
+                    controller: 'NavigationCtrl',
+                    controllerAs: 'navigation'
+                },
+                'page@': {
+                    templateUrl: 'shell/partials/page.html',
+                    controller: 'PageCtrl',
+                    controllerAs: 'page'
+                }
+            }
         })
     }
 })();

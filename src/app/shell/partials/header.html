@@ -1,0 +1,17 @@
+<div id="shell-header" ng-class="header.navigationStatus()">
+    <div id="shell-header-navigation-toggle" ng-click="header.navigationToggle()">
+        <i class="fa fa-navicon fa-2x fa-fw"></i>
+    </div>
+    <div id="shell-header-menu">
+        <button id="shell-header-menu-toggle" ng-click="header.menuToggle()" ng-blur="header.menuClose()">
+            <img class="photo" src="{{header.userPicture}}">
+            <span class="name">Jason Banister</span>
+            <i class="fa fa-chevron-down fa-fw"></i>
+        </button>
+        <ul ng-class="header.menuStatus()">
+            <li><a href>View Profile</a></li>
+            <li><a href>Change Password</a></li>
+            <li><a href>Sign Out</a></li>
+        </ul>
+    </div>
+</div>

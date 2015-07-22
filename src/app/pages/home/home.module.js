@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app.home',[
-        'templates',
+    angular.module('wkr.home',[
         'ui.router',
-        'app.shell'
+        'templates',
+        'shell'
     ]);
 })();

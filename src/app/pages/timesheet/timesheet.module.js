@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app.timesheet',[
-        'templates',
+    angular.module('wkr.timesheet',[
         'ui.router',
-        'app.shell'
+        'templates',
+        'shell'
     ]);
 })();

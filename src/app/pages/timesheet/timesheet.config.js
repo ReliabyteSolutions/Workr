@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app.timesheet')
-        .config(['$stateProvider', 'shellNavigationSvcProvider', function($stateProvider, shellNavigationSvcProvider) {
-            shellNavigationSvcProvider.addItem('shell.timesheet','ticket');
+    angular.module('wkr.timesheet')
+        .config(['$stateProvider', 'navigationSvcProvider', function($stateProvider, navigationSvcProvider) {
+            navigationSvcProvider.addItem({title:'Timesheets', sref:'shell.timesheet', icon:'ticket'});
             
             $stateProvider.state('shell.timesheet', {
                 url: '/timesheet',
